@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from AUTH.forms import *
-from AUTH.models import *
+from AUTH.models import User, male, female
 from django.shortcuts import render, redirect, get_object_or_404
 import random
 from django.contrib import messages
@@ -33,12 +33,22 @@ def Signup2PageView(request, id):
     if user_form.is_valid():
             user_form.save()
             print(user_form)
+            return redirect('profile_page', user.id)
     context = {
         "male": male,
         "female": female,
         "form": user_form,
     }
     return render(request, 'AUTH/edit_profile.html', context)
+
+def ProfilePage(request, id):
+    user = get_object_or_404(User,  id=id)
+    context = {
+        "user": user,
+        "male": male,
+        "female": female,
+    }
+    return render(request, 'Auth/profile.html', context)
 
 def LoginPageView(request):
     if request.method == 'POST':

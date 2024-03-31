@@ -1,7 +1,7 @@
+
 import uuid
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
 male = 'erkak'
 female = 'ayol'
 class User(AbstractUser):
@@ -14,6 +14,11 @@ class User(AbstractUser):
     email = models.EmailField(max_length=255, default="email@gmail.com")
     address = models.CharField(max_length=255, default="anywhere")
     gender = models.CharField(max_length=15, choices=genders.choices, default=male)
-    image = models.ImageField(upload_to='users/avatar/', default="static/static_images/none.png")
+    image = models.ImageField(upload_to='users/avatar/', null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+
+
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"

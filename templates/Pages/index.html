@@ -13,7 +13,7 @@
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <h2 class="mb-3 text-white font-weight-bold">{{ post.title |truncatewords:7 }}</h2>
                                     <div class="d-flex text-white">
-                                        <small class="mr-2"><i class="fa fa-calendar-alt"></i>  {{ post.publish_time|date:"Y"}} {{ post.publish_time|date:"j" }} {{ post.publish_time|date:"F"}} {{ post.publish_time|date:"H:i"}}</small>
+                                        <small class="mr-2"><i class="fa fa-calendar-alt"></i>  {{ post.publish_time|date:"Y"}} {{ post.publish_time | date:"j" }} {{ post.publish_time | date:"F"}} {{ post.publish_time|date:"H:i"}}</small>
                                         <small class="mr-2"><i class="fa fa-folder"></i> {{ post.category.capitalize }} </small>
                                         <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
                                     </div>

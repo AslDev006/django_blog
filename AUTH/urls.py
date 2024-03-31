@@ -6,4 +6,5 @@ urlpatterns = [
     path('logout/', LogoutPageView, name='logout_page'),
     path('signup/<id>/', Signup2PageView, name='signup2_page'),
     path(r'^password/$', change_password, name='change_password'),
+    path('users/<id>/', ProfilePage, name='profile_page'),
 ]
